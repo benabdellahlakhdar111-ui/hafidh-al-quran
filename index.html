@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#075c48">
+  <title>حافظ القرآن | رفيقك في الحفظ والمراجعة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#075c48;--green2:#0b765c;--mint:#eaf5ef;--gold:#d7ad55;--ink:#18352d;--muted:#71827b;--paper:#fbfcf9;--line:#e5ece7;--white:#fff;--shadow:0 18px 50px rgba(12,65,49,.09)}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Cairo",sans-serif}
+    button,select,input{font:inherit}button{cursor:pointer}
+    .topbar{background:linear-gradient(115deg,#064c3c,#08745a);color:white;padding:13px max(5vw,20px);display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .brand{display:flex;align-items:center;gap:12px}.brand-mark{width:43px;height:43px;border:1px solid #d9b65e;border-radius:14px;display:grid;place-items:center;color:#f1d58e;font-size:24px;background:#ffffff12}.brand strong{font-size:19px;display:block}.brand small{color:#d4e8df;font-size:11px}
+    .top-actions{display:flex;gap:9px;align-items:center}.top-actions button{border:1px solid #ffffff55;background:#ffffff12;color:white;border-radius:12px;padding:8px 13px;font-size:12px}
+    .hero{padding:48px 6vw 36px;background:radial-gradient(circle at 10% 15%,#e3f0e8 0,transparent 29%),linear-gradient(180deg,#f3f8f3,#fbfcf9);display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:30px}
+    .eyebrow{color:var(--green2);font-size:13px;font-weight:800;letter-spacing:.3px}.hero h1{font-size:clamp(30px,4vw,48px);line-height:1.35;margin:12px 0;color:#104d3d}.hero h1 span{color:#bd9140}.hero p{color:#667a70;line-height:2;max-width:650px;margin:0 0 22px}
+    .hero-buttons{display:flex;gap:10px;flex-wrap:wrap}.primary,.secondary{border:0;border-radius:13px;padding:12px 21px;font-weight:800}.primary{background:var(--green);color:white;box-shadow:0 8px 20px #075c4826}.secondary{background:white;color:var(--green);border:1px solid var(--line)}
+    .hero-art{min-height:220px;display:grid;place-items:center}.book{width:min(270px,80%);height:205px;border-radius:18px 28px 28px 18px;background:linear-gradient(135deg,#0a644e,#043d31);box-shadow:15px 18px 0 #d9bd7c, var(--shadow);display:grid;place-items:center;position:relative;color:#f3d991;border:5px double #d8b65e;transform:rotate(-3deg)}.book:before{content:"";position:absolute;inset:12px;border:1px solid #e5c875;border-radius:12px}.book .orn{font-size:56px}.book strong{font-family:"Amiri",serif;font-size:27px}.book small{color:#e9d9a8}
+    main{max-width:1160px;margin:0 auto;padding:30px 22px 70px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:8px 0 18px}.section-head h2{margin:0;font-size:22px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}
+    .grid{display:grid;grid-template-columns:1.05fr 1.3fr;gap:20px}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}.card h3{margin:0 0 17px;font-size:17px}.field{margin-bottom:14px}.field label{display:block;font-size:12px;color:#5e7269;font-weight:800;margin-bottom:7px}.field select,.field input{width:100%;padding:11px 12px;border:1px solid #dfe8e1;border-radius:11px;background:#fcfdfb;color:var(--ink);outline-color:#70ad91}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.repeat-options{display:flex;gap:7px;flex-wrap:wrap}.repeat-options button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 13px;color:#557067}.repeat-options button.active{background:var(--mint);border-color:#80b69d;color:var(--green);font-weight:900}
+    .session-card{background:linear-gradient(160deg,#fff,#f5faf6)}.session-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.pill{font-size:11px;padding:5px 10px;border-radius:30px;background:#edf6ef;color:var(--green);font-weight:800}.verse-box{background:#f8f5e9;border:1px solid #eee4c7;border-radius:16px;padding:22px 18px;text-align:center;margin:14px 0}.verse-label{font-size:11px;color:#94753b;font-weight:800}.verse{font-family:"Amiri",serif;font-size:clamp(26px,3vw,35px);line-height:1.9;color:#174c3d;margin:8px 0}.verse-note{font-size:11px;color:#8b8b78}
+    .step-line{display:flex;gap:7px;align-items:center;margin:17px 0}.step-line span{height:5px;border-radius:8px;background:#e7eee9;flex:1}.step-line span.done{background:#75ad8d}
+    .controls{display:flex;gap:9px;flex-wrap:wrap}.controls button{flex:1;min-width:120px}.listen{background:var(--green);color:white;border:0;border-radius:12px;padding:12px;font-weight:800}.mic{background:#fff;border:1px solid #cddfd3;color:var(--green);border-radius:12px;padding:12px;font-weight:800}.status{margin-top:14px;padding:12px;border-radius:12px;background:#f1f6f2;color:#5a7166;font-size:12px;line-height:1.8;min-height:47px}.status.good{background:#e8f6ed;color:#17633f}.status.warn{background:#fff5e4;color:#8a6420}
+    .mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.stat{border:1px solid var(--line);border-radius:14px;padding:13px;text-align:center}.stat strong{display:block;font-size:21px;color:var(--green)}.stat small{font-size:10px;color:var(--muted)}
+    .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:15px}.how{background:white;border:1px solid var(--line);border-radius:16px;padding:17px}.how b{display:block;color:var(--green);margin:7px 0}.how p{font-size:12px;line-height:1.8;color:var(--muted);margin:0}.num{width:32px;height:32px;border-radius:10px;background:var(--mint);color:var(--green);display:grid;place-items:center;font-weight:900}
+    footer{border-top:1px solid var(--line);padding:20px;text-align:center;color:#819087;font-size:11px}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center;padding-top:35px}.hero p{margin-inline:auto}.hero-buttons{justify-content:center}.hero-art{min-height:170px}.book{height:155px;width:220px}.book .orn{font-size:42px}.grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
+    @media(max-width:480px){.topbar{padding:11px 15px}.top-actions button{padding:7px 9px}.brand strong{font-size:16px}.hero{padding-inline:18px}.field-row{grid-template-columns:1fr}.card{padding:17px}.mini-stats{gap:6px}.stat{padding:10px 4px}}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">۞</div><div><strong>حافظ القرآن</strong><small>رفيقك في الحفظ والمراجعة</small></div></div>
+  <div class="top-actions"><button type="button" onclick="document.getElementById('practice').scrollIntoView({behavior:'smooth'})">ابدأ جلسة الحفظ</button></div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">✦ رحلة مباركة مع كتاب الله</div>
+    <h1>خطوةٌ كل يوم…<br><span>وحفظٌ يثبت في القلب</span></h1>
+    <p>بيئة تعليمية تساعد الأسرة والمتعلم على تنظيم الحفظ والتكرار والمراجعة، بأسلوب يتدرج مع العمر والمستوى، ويجمع بين التلقين والتشجيع.</p>
+    <div class="hero-buttons">
+      <button class="primary" onclick="document.getElementById('practice').scrollIntoView({behavior:'smooth'})">ابدأ الحفظ الآن</button>
+      <button class="secondary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">كيف تعمل المنصة؟</button>
+    </div>
+  </div>
+  <div class="hero-art"><div class="book"><div style="text-align:center"><div class="orn">۞</div><strong>القرآن الكريم</strong><br><small>نورٌ وهداية</small></div></div></div>
+</section>
+
+<main>
+  <div class="section-head"><div><h2>جلسة الحفظ</h2><p>اضبط الجلسة بما يناسب عمر المتعلم وقدرته.</p></div><span class="pill">نسخة تجريبية أولى</span></div>
+  <div class="grid" id="practice">
+    <section class="card">
+      <h3>إعدادات المتعلم</h3>
+      <div class="field"><label for="learnerName">اسم المتعلم (اختياري)</label><input id="learnerName" type="text" placeholder="اكتب اسم المتعلم"></div>
+      <div class="field-row">
+        <div class="field"><label for="age">الفئة العمرية</label><select id="age" onchange="updateVoice()"><option value="young">أقل من 8 سنوات</option><option value="middle">من 8 إلى 11 سنة</option><option value="older">12 سنة فما فوق</option></select></div>
+        <div class="field"><label for="surah">السورة</label><select id="surah" onchange="updateVerse()"><option value="ikhlas">الإخلاص</option><option value="falaq">الفلق</option><option value="nas">الناس</option></select></div>
+      </div>
+      <div class="field"><label for="verseSelect">اختر الآية</label><select id="verseSelect" onchange="updateVerse()"><option value="0">الآية الأولى</option></select></div>
+      <div class="field"><label>عدد مرات التكرار</label><div class="repeat-options" id="repeats"><button type="button" data-count="2">2</button><button type="button" data-count="3" class="active">3</button><button type="button" data-count="5">5</button><button type="button" data-count="7">7</button><button type="button" data-count="10">10</button></div></div>
+      <div class="field"><label for="chunk">طريقة التلقين</label><select id="chunk"><option value="3">تقسيم إلى 3 كلمات</option><option value="2">تقسيم إلى كلمتين</option><option value="all">الآية كاملة</option></select></div>
+      <button class="primary" style="width:100%" onclick="startLesson()">ابدأ جلسة التلقين</button>
+    </section>
+
+    <section class="card session-card">
+      <div class="session-top"><h3 style="margin:0">مساحة التلقين</h3><span class="pill" id="voiceMode">صوت تربوي مشجع</span></div>
+      <div class="verse-box">
+        <div class="verse-label" id="verseTitle">سورة الإخلاص · الآية 1</div>
+        <div class="verse" id="verseText">قُلْ هُوَ اللَّهُ أَحَدٌ</div>
+        <div class="verse-note">استمع أولاً، ثم ردد بهدوء ووضوح</div>
+      </div>
+      <div class="step-line"><span class="done" id="progressBar"></span><span></span><span></span></div>
+      <div class="controls">
+        <button class="listen" type="button" onclick="promptLearner()">🔊 اسمع التوجيه</button>
+        <button class="mic" type="button" id="micBtn" onclick="listenToLearner()">🎙️ ابدأ التسميع</button>
+      </div>
+      <div class="status" id="status" role="status">أهلاً بك! اضغط «ابدأ جلسة التلقين» للانطلاق. يمكنك تجربة أزرار الصوت والميكروفون في هذه النسخة.</div>
+      <div class="mini-stats">
+        <div class="stat"><strong id="repeatCount">0 / 3</strong><small>مرات التكرار</small></div>
+        <div class="stat"><strong id="wordCount">4</strong><small>عدد كلمات الآية</small></div>
+        <div class="stat"><strong id="sessionState">جاهز</strong><small>حالة الجلسة</small></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="section-head" id="how" style="margin-top:38px"><div><h2>كيف تعمل «حافظ القرآن»؟</h2><p>خطوات بسيطة ترافق المتعلم في رحلته.</p></div></div>
+  <div class="how-grid">
+    <div class="how"><div class="num">1</div><b>اختر واضبط</b><p>حدد السورة والآية والعمر وعدد مرات التكرار وطريقة تقسيم المقاطع.</p></div>
+    <div class="how"><div class="num">2</div><b>استمع وردد</b><p>يستمع المتعلم إلى التلقين، ثم يردد المقطع أو الآية حسب مستواه.</p></div>
+    <div class="how"><div class="num">3</div><b>راجع وثبّت</b><p>يتدرب المتعلم على التسميع، ثم يراجع ما حفظه لتثبيت الآيات.</p></div>
+  </div>
+  <div class="status warn" style="margin-top:20px">تنبيه: هذه نسخة واجهة أولية. التعرف الصوتي في المتصفح تجريبي وقد يخطئ في ألفاظ القرآن وأحكام التجويد؛ لذلك لا يُعد تصحيحاً قرآنياً معتمداً. سنضيف لاحقاً تلاوات موثوقة ومحركاً متخصصاً، ولن يصدر النظام حكماً على القراءة عند عدم التأكد.</div>
+</main>
+<footer>حافظ القرآن · اللهم اجعل القرآن ربيع قلوبنا ونور صدورنا</footer>
+
+<script>
+const data = {
+  ikhlas: {name:"الإخلاص", verses:["قُلْ هُوَ اللَّهُ أَحَدٌ","اللَّهُ الصَّمَدُ","لَمْ يَلِدْ وَلَمْ يُولَدْ","وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ"]},
+  falaq: {name:"الفلق", verses:["قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ","مِنْ شَرِّ مَا خَلَقَ","وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ","وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ","وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ"]},
+  nas: {name:"الناس", verses:["قُلْ أَعُوذُ بِرَبِّ النَّاسِ","مَلِكِ النَّاسِ","إِلَٰهِ النَّاسِ","مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ","الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ","مِنَ الْجِنَّةِ وَالنَّاسِ"]}
+};
+let repeatTarget=3, repeatsDone=0, currentChunks=[], chunkIndex=0, recognition=null;
+const $=id=>document.getElementById(id);
+function clean(s){return s.replace(/[ًٌٍَُِّْٰٓۖۗۚۛۜ۞ـ]/g,"").replace(/[أإآٱ]/g,"ا").replace(/[.,،؛:؟!]/g,"").trim().replace(/\s+/g," ")}
+function updateVerse(){
+ const key=$("surah").value, list=data[key].verses;
+ $("verseSelect").innerHTML=list.map((v,i)=>`<option value="${i}">الآية ${i+1}</option>`).join("");
+ showVerse();
+}
+function showVerse(){
+ const key=$("surah").value, i=+$("verseSelect").value, v=data[key].verses[i];
+ $("verseTitle").textContent=`سورة ${data[key].name} · الآية ${i+1}`;
+ $("verseText").textContent=v; $("wordCount").textContent=v.split(/\s+/).length;
+}
+function updateVoice(){
+ const a=$("age").value;
+ $("voiceMode").textContent=a==="older"?"تلاوة قارئ متقن · لاحقاً":"صوت تربوي مشجع · لاحقاً";
+}
+$("repeats").addEventListener("click",e=>{
+ const b=e.target.closest("button[data-count]"); if(!b)return;
+ repeatTarget=+b.dataset.count;
+ document.querySelectorAll("#repeats button").forEach(x=>x.classList.toggle("active",x===b));
+ $("repeatCount").textContent=`${repeatsDone} / ${repeatTarget}`;
+});
+function setStatus(msg,type=""){ $("status").className="status "+type; $("status").textContent=msg; }
+function speak(text){
+ if(!("speechSynthesis" in window)){setStatus("ميزة النطق غير مدعومة في هذا المتصفح.","warn");return;}
+ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(text); u.lang="ar-SA";u.rate=$("age").value==="young"?.82:.9;
+ speechSynthesis.speak(u);
+}
+function startLesson(){
+ const v=data[$("surah").value].verses[+$("verseSelect").value];
+ const words=v.split(/\s+/), size=$("chunk").value==="all"?words.length:+$("chunk").value;
+ currentChunks=[];for(let i=0;i<words.length;i+=size)currentChunks.push(words.slice(i,i+size).join(" "));
+ chunkIndex=0;repeatsDone=0;
+ $("repeatCount").textContent=`0 / ${repeatTarget}`;$("sessionState").textContent="بدأت";
+ $("progressBar").style.flex=(1/currentChunks.length).toString();
+ $("verseText").textContent=currentChunks[0];
+ setStatus(`بدأنا بفضل الله. استمع إلى المقطع الأول: «${currentChunks[0]}» ثم ردد بعده.`);
+}
+function promptLearner(){
+ const name=$("learnerName").value.trim();
+ const intro=$("age").value==="young"?(name?`يا ${name}، هيا نستمع ونردد معاً. `:"يا بطل، هيا نستمع ونردد معاً. "):"استمع إلى المقطع جيداً، ثم أعد قراءته بهدوء. ";
+ const part=currentChunks.length?currentChunks[chunkIndex]:$("verseText").textContent;
+ speak(intro+part);
+ setStatus("يُشغّل توجيه صوتي تجريبي. التلاوة القرآنية المعتمدة ستُضاف في مرحلة لاحقة.");
+}
+function listenToLearner(){
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){setStatus("التعرف على الكلام غير متاح في هذا المتصفح. جرّب Chrome مع السماح بالميكروفون.","warn");return;}
+ if(recognition){try{recognition.stop()}catch(e){}}
+ recognition=new SR();recognition.lang="ar-SA";recognition.continuous=false;recognition.interimResults=false;
+ $("micBtn").textContent="🎙️ أستمع إليك…";setStatus("تحدث الآن بعد السماح باستخدام الميكروفون.");
+ recognition.onresult=e=>{
+   const heard=e.results[0][0].transcript;
+   const target=currentChunks.length?currentChunks[chunkIndex]:$("verseText").textContent;
+   const ok=clean(heard)===clean(target);
+   if(ok){
+     repeatsDone++;$("repeatCount").textContent=`${repeatsDone} / ${repeatTarget}`;
+     if(repeatsDone>=repeatTarget){
+       if(currentChunks.length && chunkIndex<currentChunks.length-1){
+         chunkIndex++;repeatsDone=0;$("verseText").textContent=currentChunks[chunkIndex];
+         $("repeatCount").textContent=`0 / ${repeatTarget}`;
+         setStatus("أحسنت! ننتقل الآن إلى المقطع التالي: "+currentChunks[chunkIndex],"good");
+       }else{$("sessionState").textContent="اكتمل";setStatus("أحسنت! انتهى تدريب هذا المقطع في النسخة التجريبية. راجع مع معلمك لإتقان التلاوة.","good");}
+     }else setStatus(`أحسنت، التقط النظام: «${heard}». كرر مرة أخرى للتثبيت.`,"good");
+   }else setStatus(`سمعت: «${heard}». حاول مرة أخرى. ملاحظة: التعرف الآلي تجريبي وقد لا يطابق النطق القرآني بدقة.`,"warn");
+ };
+ recognition.onerror=e=>setStatus("تعذر استخدام الميكروفون: "+e.error+". تحقق من أذونات المتصفح.","warn");
+ recognition.onend=()=>{$("micBtn").textContent="🎙️ ابدأ التسميع";};
+ try{recognition.start()}catch(e){$("micBtn").textContent="🎙️ ابدأ التسميع";setStatus("تعذر بدء الاستماع. حاول مجدداً.","warn");}
+}
+updateVerse();updateVoice();
+</script>
+</body>
+</html>
